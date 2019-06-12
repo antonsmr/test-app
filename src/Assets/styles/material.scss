@@ -1,0 +1,19 @@
+.MuiList-root {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1200px;
+
+  li {
+    width: 33.33333%;
+  }
+
+  .MuiPaper-root {
+    margin: 15px;
+    max-width: 100%;
+
+    .MuiCardMedia-root {
+      background-size: contain;
+    }
+  }
+}
