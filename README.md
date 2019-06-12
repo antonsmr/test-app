@@ -1,9 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Example ENVs
-export REACT_APP_NODE_ENV=development
-export FIREBASE_DEPLOY_KEY=
-export FIREBASE_PROJECT=
+`export REACT_APP_NODE_ENV=development
+export FIREBASE_DEPLOY_KEY=""
+export FIREBASE_PROJECT=""`
 
 ## Available Scripts
 
