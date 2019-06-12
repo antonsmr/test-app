@@ -4,30 +4,22 @@ import {
 } from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+
+import NewBook from '../NewBook';
 
 import { useStyles } from './utils/styles';
 
 const Header = ({
-  title, onSearch,
+  title, onSearch, onAddNewClick,
 }) => {
   const classes = useStyles();
 
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="Open drawer"
-        >
-          <MenuIcon />
-        </IconButton>
         <Typography className={classes.title} variant="h6" noWrap>
           {title}
         </Typography>
@@ -45,6 +37,8 @@ const Header = ({
             onChange={onSearch}
           />
         </div>
+        <NewBook onAddNewClick={onAddNewClick} />
+
       </Toolbar>
     </AppBar>
   );
@@ -53,11 +47,13 @@ const Header = ({
 Header.propTypes = {
   title: string,
   onSearch: func,
+  onAddNewClick: func,
 };
 
 Header.defaultProps = {
   title: '',
   onSearch: null,
+  onAddNewClick: null,
 };
 
 export default Header;

@@ -35,3 +35,10 @@
 .uppercase {
   text-transform: uppercase;
 }
+
+.form-errors {
+  p {
+    color: red;
+    font-size: 12px;
+  }
+}

@@ -7,12 +7,12 @@ import List from '@material-ui/core/List';
 import BookItem from '../BookItem';
 
 const BookList = ({
-  list, classes,
+  list, classes, onExpand, onRemoveClick,
 }) => (
   <List className={classes.root}>
     {list.map(item => (
-      <li>
-        <BookItem item={item} key={list.indexOf(item)} />
+      <li key={list.indexOf(item)}>
+        <BookItem item={item} onExpand={onExpand} onRemoveClick={onRemoveClick} />
       </li>
     ))}
   </List>
@@ -21,11 +21,15 @@ const BookList = ({
 BookList.propTypes = {
   list: arrayOf(shape()),
   classes: func,
+  onExpand: func,
+  onRemoveClick: func,
 };
 
 BookList.defaultProps = {
   list: {},
   classes: null,
+  onExpand: null,
+  onRemoveClick: null,
 };
 
 export default BookList;

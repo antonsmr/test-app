@@ -1,24 +1,20 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
-  arrayOf, shape, func,
+  shape, func, bool,
 } from 'prop-types';
 
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Fab from '@material-ui/core/Fab';
+import EditIcon from '@material-ui/icons/Edit';
+import Button from '@material-ui/core/Button';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -26,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '56.25%',
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -34,6 +30,7 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
+    margin: theme.spacing(1),
   },
   expandOpen: {
     transform: 'rotate(180deg)',
@@ -41,31 +38,34 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     backgroundColor: red[500],
   },
+  fab: {
+    margin: theme.spacing(1),
+  },
+  EditIcon: {
+    width: '20px',
+    height: '20px',
+  },
 }));
 
 const BookItem = ({
-  item, handleExpandClick,
+  item, onExpand, onRemoveClick, hideBtns,
 }) => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
       <CardHeader
-        avatar={(
-          <Avatar aria-label="Recipe" className={classes.avatar}>
-            {item.title.charAt(0)}
-          </Avatar>
-        )}
-        action={(
-          <IconButton aria-label="Settings">
-            <MoreVertIcon />
-          </IconButton>
+        avatar={null}
+        action={!hideBtns && (
+          <Fab onClick={() => onExpand(item)} size="small" color="primary" aria-label="Edit" className={classes.fab}>
+            <EditIcon className={classes.EditIcon} />
+          </Fab>
         )}
         title={item.title}
         subheader={`${item.author} - ${item.date}`}
       />
       <CardMedia
         className={classes.media}
-        image={item.image}
+        image={item.image || 'https://www.myfirestorm.com/l/img/placeholder-img.jpg'}
         title="Paella dish"
       />
       <CardContent>
@@ -74,24 +74,38 @@ const BookItem = ({
           guests. Add 1 cup of frozen peas along with the mussels, if you like.
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="Add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="Share">
-          <ShareIcon />
-        </IconButton>
-      </CardActions>
+      {!hideBtns && (
+        <CardActions disableSpacing>
+          <Button
+            onClick={() => onRemoveClick(item)}
+            variant="outlined"
+            size="small"
+            color="primary"
+            className={
+            clsx(classes.expand, {
+              [classes.expandOpen]: false,
+            })}
+          >
+          Remove
+          </Button>
+        </CardActions>
+      )}
     </Card>
   );
 };
 
 BookItem.propTypes = {
   item: shape(),
+  onExpand: func,
+  onRemoveClick: func,
+  hideBtns: bool,
 };
 
 BookItem.defaultProps = {
   item: {},
+  onExpand: null,
+  onRemoveClick: null,
+  hideBtns: false,
 };
 
 export default BookItem;

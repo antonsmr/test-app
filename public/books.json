@@ -1,36 +1,43 @@
 [
   {
+    "id": 1,
     "author": "Chinua Achebe",
     "title": "Things Fall Apart",
     "date": 1958,
     "image": "https://www.bookstellyouwhy.com/pictures/53375.jpg"
   }, {
+    "id": 2,
     "author": "Hans Christian Andersen",
     "title": "Fairy tales",
     "date": 1836,
     "image": "https://kbimages1-a.akamaihd.net/96634076-1c91-4fa9-9518-41c5bfa3e59f/353/569/90/False/harry-potter-and-the-sorcerer-s-stone-the-first-book-in-the-phenomenal-internationally-bestselling-harry-potter-series-by-j-k-rowling.jpg"
   }, {
+    "id": 3,
     "author": "Dante Alighieri",
     "title": "The Divine Comedy",
     "date": 1315,
     "image": "https://images-eu.ssl-images-amazon.com/images/I/51tNSGCDzDL.jpg"
   }, {
+    "id": 4,
     "author": "Jane Austen",
     "title": "Pride and Prejudice",
     "date": 1813,
     "image": "https://kbimages1-a.akamaihd.net/db1b24c5-f64c-4fd3-bdef-5717817dc636/1200/1200/False/harry-potter-and-the-order-of-the-phoenix-5.jpg"
   },
   {
+    "id": 5,
     "author": "Honor\u00e9 de Balzac",
     "title": "Le P\u00e8re Goriot",
     "date": 1835,
     "image": "https://images-eu.ssl-images-amazon.com/images/I/519RmXyy9EL.jpg"
   }, {
+    "id": 6,
     "author": "Samuel Beckett",
     "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
     "date": 1952,
     "image": "https://images-na.ssl-images-amazon.com/images/I/51%2BlzORpG6L._SX309_BO1,204,203,200_.jpg"
   }, {
+    "id": 7,
     "author": "Giovanni Boccaccio",
     "title": "The Decameron",
     "date": 1351,

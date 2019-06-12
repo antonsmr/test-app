@@ -17,3 +17,22 @@
     }
   }
 }
+
+.popup-edit-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 25px;
+
+  .MuiPaper-root {
+    margin: auto;
+  }
+
+  .MuiCardMedia-root {
+    background-size: contain;
+  }
+
+  .MuiFormControl-root {
+    margin: 15px 0;
+  }
+}

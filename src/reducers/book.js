@@ -2,6 +2,9 @@ import {
   FETCH_BOOKS_LIST_STARTED,
   FETCH_BOOKS_LIST_FINISHED,
   SET_FILTERED_BOOKS,
+  UPDATE_BOOK,
+  ADD_BOOK,
+  REMOVE_BOOK,
 } from '../actions/types';
 
 const initialState = {
@@ -32,6 +35,21 @@ export default (state = initialState, action = {}) => {
         filteredBooks: state.list.filter(
           book => book.title.toLowerCase().includes(action.payload.toLowerCase()),
         ),
+      };
+    case UPDATE_BOOK:
+      return {
+        ...state,
+        list: action.payload,
+      };
+    case ADD_BOOK:
+      return {
+        ...state,
+        list: [...state.list, action.payload],
+      };
+    case REMOVE_BOOK:
+      return {
+        ...state,
+        list: state.list.filter(l => l.id !== action.payload),
       };
     default: return state;
   }
